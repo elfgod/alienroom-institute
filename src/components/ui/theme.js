@@ -3,6 +3,7 @@ import { green, purple } from '@mui/material/colors';
 
 const alienPurple = '#320357'
 const alienAqua = '#00ffff'
+const alienLightPurple = '#A630ff'
 
 const theme = createTheme({
   palette: {
@@ -17,6 +18,11 @@ const theme = createTheme({
       main: `${alienAqua}`,
     },
   },
+  typography: {
+    h5: {
+      fontWeight: 500
+    }
+  }
 });
 
 export default theme

@@ -2,6 +2,7 @@ import React from 'react'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import { Typography } from '@mui/material';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -21,7 +22,9 @@ const Header = (props) => {
     <ElevationScroll>
       <AppBar position='fixed'>
         <Toolbar>
-          AlienRoom Instituto
+          <Typography variant='h5' color='secondary'> 
+            AlienRoom
+          </Typography>
         </Toolbar>
       </AppBar>
     </ElevationScroll>
