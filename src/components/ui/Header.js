@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { Typography } from '@mui/material';
+import { makeStyles } from "@mui/styles"
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -15,20 +16,29 @@ function ElevationScroll(props) {
   return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
   });
-}
+}  
 
-const Header = (props) => {
+  const useStyles = makeStyles(theme => ({
+    toolbarMargin: {
+      ...theme.mixins.toolbar
+    }
+}))
+
+export default function Header(props) {
+  const classes = useStyles()
+
   return (
-    <ElevationScroll>
-      <AppBar position='fixed'>
-        <Toolbar>
-          <Typography variant='h5' color='secondary'> 
-            AlienRoom
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </ElevationScroll>
+    <>
+      <ElevationScroll>
+        <AppBar position='fixed'>
+          <Toolbar>
+            <Typography variant='h5' color='secondary'> 
+              AlienRoom
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin} />
+    </>
   )
 }
-
-export default Header
