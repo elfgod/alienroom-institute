@@ -4,16 +4,16 @@ const alienPurple = '#320357'
 const alienAqua = '#00ffff'
 const alienLightPurple = '#A630ff'
 
-export default createTheme({
+const theme = createTheme({
   palette: {
     common: {
       purple: `${alienPurple}`,
       aqua: `${alienAqua}`
     },
-    primary: {
+    success: {
       main: `${alienPurple}`,
     },
-    secondary: {
+    info: {
       main: `${alienAqua}`,
     },
   },
@@ -23,6 +23,14 @@ export default createTheme({
       textTransform: 'none',
       fontWeight: 700,
       fontSize: '1rem',
+    },
+    estimate: {
+      fontFamily: 'Pacifico',
+      fontSize: '1rem',
+      textTransform: 'none',
+      color: 'white'
     }
   }
 });
+
+export default theme;

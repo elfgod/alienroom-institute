@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from '@mui/material/styles';
 
-import theme from './ui/Theme'
+import theme from './ui/theme'
 import Header from '../components/ui/Header'
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <div>
-        <h1>AlienRoom Instituto</h1>
+        <h1 color='secondary'>AlienRoom Instituto</h1>
       </div>      
     </ThemeProvider>
   )

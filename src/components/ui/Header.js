@@ -5,6 +5,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { makeStyles } from "@mui/styles";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Button from '@mui/material/Button'
 
 import logo from '../../assets/logo.svg'
 
@@ -38,23 +39,44 @@ const useStyles = makeStyles(theme => ({
   minWidth: 10,
   marginLeft: '25px'
   },
+  button: {
+    ...theme.typography.estimate,
+    borderRadius: '50px',
+    marginLeft: '50px',
+    marginRight:'25px',
+    height: '45px',
+  }
 }));
 
 export default function Header(props) {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <>
       <ElevationScroll>
-        <AppBar position='fixed'>
+        <AppBar
+        position='fixed'
+        color='success'
+        text='secondary'
+        sx={{
+        color: 'white',        
+        fontSize: 19,
+        fontWeight: '700',
+      }}>
           <Toolbar disableGutters>
             <img alt="company logo" className={classes.logo} src={logo} />
-          <Tabs className={classes.tabContainer} >
+          <Tabs className={classes.tabContainer}>
             <Tab className={classes.tab} label="Home" />
             <Tab className={classes.tab} label="Courses" />
             <Tab className={classes.tab} label="Why AlienRoom" />
             <Tab className={classes.tab} label="Contact Us" />
-          </Tabs>          
+          </Tabs>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}>
+              Free Estimated
+          </Button>          
           </Toolbar>
         </AppBar>
       </ElevationScroll>
