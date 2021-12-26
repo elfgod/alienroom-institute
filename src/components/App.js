@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from '@mui/material/styles';
 
-import theme from './ui/theme'
+import theme from './ui/Theme'
 import Header from '../components/ui/Header'
 
 const App = () => {

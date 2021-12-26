@@ -4,7 +4,7 @@ const alienPurple = '#320357'
 const alienAqua = '#00ffff'
 const alienLightPurple = '#A630ff'
 
-const theme = createTheme({
+export default createTheme({
   palette: {
     common: {
       purple: `${alienPurple}`,
@@ -18,10 +18,11 @@ const theme = createTheme({
     },
   },
   typography: {
-    h5: {
-      fontWeight: 500
+    tab: {
+      fontFamily: 'Raleway',
+      textTransform: 'none',
+      fontWeight: 700,
+      fontSize: '1rem',
     }
   }
 });
-
-export default theme
