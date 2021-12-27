@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { makeStyles } from "@mui/styles";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.svg'
 
@@ -76,10 +77,11 @@ export default function Header(props) {
             onChange={handleChange}
             indicatorColor='success'
           >
-            <Tab className={classes.tab} label="Home" />
-            <Tab className={classes.tab} label="Courses" />
-            <Tab className={classes.tab} label="Why AlienRoom" />
-            <Tab className={classes.tab} label="Contact Us" />
+            <Tab className={classes.tab} component={Link} to='/' label="Home" />
+            <Tab className={classes.tab} component={Link} to='/coures' label="Courses" />
+            <Tab className={classes.tab} component={Link} to='/services' label="Services" />
+            <Tab className={classes.tab} component={Link} to='/about' label="Why AlienRoom" />
+            <Tab className={classes.tab} component={Link} to='/contactus' label="Contact Us" />
           </Tabs>
           <Button
             variant="contained"
