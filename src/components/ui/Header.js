@@ -57,6 +57,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '25px',
     height: '45px',
   },
+  menu: {
+    backgroundColor: theme.palette.common.purple,
+    color: 'white',
+    borderRadious: '0px',
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    '&:hover': {
+      opacity: 1,
+    },
+  },
 }))
 
 export default function Header(props) {
@@ -169,9 +181,11 @@ export default function Header(props) {
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
+              classes={{ paper: classes.menu }}
               MenuListProps={{
                 onMouseLeave: handleClose,
               }}
+              elevation={0}
             >
               <MenuItem
                 onClick={() => {
@@ -180,6 +194,7 @@ export default function Header(props) {
                 }}
                 component={Link}
                 to='/courses'
+                classes={{ root: classes.menuItem }}
               >
                 Courses
               </MenuItem>
@@ -190,6 +205,7 @@ export default function Header(props) {
                 }}
                 component={Link}
                 to='/frontend-bootcamp'
+                classes={{ root: classes.menuItem }}
               >
                 FrontEnd Bootcamp
               </MenuItem>
@@ -200,6 +216,7 @@ export default function Header(props) {
                 }}
                 component={Link}
                 to='/backend-bootcamp'
+                classes={{ root: classes.menuItem }}
               >
                 BackEnd Bootcamp
               </MenuItem>
@@ -210,6 +227,7 @@ export default function Header(props) {
                 }}
                 component={Link}
                 to='/fullstack-bootcamp'
+                classes={{ root: classes.menuItem }}
               >
                 FullStack Bootcamp
               </MenuItem>
