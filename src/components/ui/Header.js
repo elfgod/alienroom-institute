@@ -173,9 +173,46 @@ export default function Header(props) {
                 onMouseLeave: handleClose,
               }}
             >
-              <MenuItem onClick={handleClose}>FrontEnd Bootcamp</MenuItem>
-              <MenuItem onClick={handleClose}>BackEnd Bootcamp</MenuItem>
-              <MenuItem onClick={handleClose}>FullStack Bootcamp</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose()
+                  setValue(1)
+                }}
+                component={Link}
+                to='/courses'
+              >
+                Courses
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose()
+                  setValue(1)
+                }}
+                component={Link}
+                to='/frontend-bootcamp'
+              >
+                FrontEnd Bootcamp
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose()
+                  setValue(1)
+                }}
+                component={Link}
+                to='/backend-bootcamp'
+              >
+                BackEnd Bootcamp
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose()
+                  setValue(1)
+                }}
+                component={Link}
+                to='/fullstack-bootcamp'
+              >
+                FullStack Bootcamp
+              </MenuItem>
             </Menu>
           </Toolbar>
         </AppBar>
