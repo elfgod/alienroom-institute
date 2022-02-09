@@ -76,6 +76,7 @@ export default function Header(props) {
   const [value, setValue] = useState(0)
   const [anchorEl, setAnchorEl] = useState(null)
   const [open, setOpen] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const handleChange = (e, value) => {
     setValue(value)
@@ -86,10 +87,23 @@ export default function Header(props) {
     setOpen(true)
   }
 
+  const handleMenuItemClick = (e, i) => {
+    setAnchorEl(null)
+    setOpen(false)
+    setSelectedIndex()
+  }
+
   const handleClose = (e) => {
     setAnchorEl(null)
     setOpen(false)
   }
+
+  const menuOptions = [
+    { name: 'Courses', link: '/courses' },
+    { name: 'FrontEnd Bootcamp', link: '/frontend-bootcamp' },
+    { name: 'BackEnd Bootcamp', link: '/backend-bootcamp' },
+    { name: 'FullStack Bootcamp', link: '/fullstack-bootcamp' },
+  ]
 
   useEffect(() => {
     if (window.location.pathname === '/' && value !== 0) {
@@ -187,50 +201,22 @@ export default function Header(props) {
               }}
               elevation={0}
             >
-              <MenuItem
-                onClick={() => {
-                  handleClose()
-                  setValue(1)
-                }}
-                component={Link}
-                to='/courses'
-                classes={{ root: classes.menuItem }}
-              >
-                Courses
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  handleClose()
-                  setValue(1)
-                }}
-                component={Link}
-                to='/frontend-bootcamp'
-                classes={{ root: classes.menuItem }}
-              >
-                FrontEnd Bootcamp
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  handleClose()
-                  setValue(1)
-                }}
-                component={Link}
-                to='/backend-bootcamp'
-                classes={{ root: classes.menuItem }}
-              >
-                BackEnd Bootcamp
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  handleClose()
-                  setValue(1)
-                }}
-                component={Link}
-                to='/fullstack-bootcamp'
-                classes={{ root: classes.menuItem }}
-              >
-                FullStack Bootcamp
-              </MenuItem>
+              {menuOptions.map((option, index) => (
+                <MenuItem
+                  key={option}
+                  component={Link}
+                  to={option.link}
+                  classes={{ root: classes.menuItem }}
+                  onClick={(event) => {
+                    handleMenuItemClick(event, index)
+                    setValue(1)
+                    handleClose()
+                  }}
+                  selected={index === selectedIndex && value === 1}
+                >
+                  {option.name}
+                </MenuItem>
+              ))}
             </Menu>
           </Toolbar>
         </AppBar>
